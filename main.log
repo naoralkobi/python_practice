@@ -1,0 +1,5 @@
+2024-02-02 18:57:08,923 - DEBUG - Logger initialized: Debug information.
+2024-02-02 18:57:08,923 - INFO - Logger initialized: Basic information.
+2024-02-02 18:57:08,923 - WARNING - Logger initialized: Warning! Potential issues.
+2024-02-02 18:57:08,923 - ERROR - Logger initialized: Error occurred. Check the logs.
+2024-02-02 18:57:08,923 - CRITICAL - Logger initialized: Critical error! Immediate attention required.
