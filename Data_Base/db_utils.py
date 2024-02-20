@@ -5,10 +5,10 @@ from mysql.connector import pooling
 db_pool = pooling.MySQLConnectionPool(
     pool_name="mypool",
     pool_size=5,
-    host='your_host',
-    user='your_user',
-    password='your_password',
-    database='your_database'
+    host='localhost',
+    user='root',
+    password='zivi1207',
+    database='my_db'
 )
 
 

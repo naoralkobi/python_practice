@@ -253,7 +253,7 @@ def create_logger():
     import logging
     logging.basicConfig(filename="main.log",
                         format="%(asctime)s - %(levelname)s - %(message)s",
-                        level=logging.DEBUG)  # Set the logging level to DEBUG for demonstration purposes
+                        level=logging.DEBUG)
 
     logger = logging.getLogger()
     logger.debug("Logger initialized: Debug information.")

@@ -1,5 +1,13 @@
 import mysql.connector
 from db_utils import get_connection, close_connection
+import logging
+import traceback
+
+logging.basicConfig(filename="db_handler.log",
+                    format="%(asctime)s - %(levelname)s - %(message)s",
+                    level=logging.DEBUG)
+
+logger = logging.getLogger()
 
 
 def with_db_connection(func):
@@ -7,8 +15,11 @@ def with_db_connection(func):
         connection = get_connection()
         try:
             with connection.cursor() as cursor:
-                # Pass the cursor to the decorated function
                 return func(cursor, *args, **kwargs)
+        except Exception as e:
+            function_name = func.__name__
+            error_message = f"Exception in {function_name} while executing SQL query: {e}\n{traceback.format_exc()}"
+            logging.critical(error_message)
         finally:
             close_connection(connection)
 
