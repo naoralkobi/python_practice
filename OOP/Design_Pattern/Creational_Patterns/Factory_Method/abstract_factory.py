@@ -27,18 +27,18 @@ class Coffee(HotDrink):
         print('This coffee is delicious')
 
 
-class HotDrinkFactory(ABC):
-    def prepare(self, amount):
-        pass
+# class HotDrinkFactory(ABC):
+#     def prepare(self, amount):
+#         pass
 
 
-class TeaFactory(HotDrinkFactory):
+class TeaFactory:
     def prepare(self, amount):
         print(f'Put in tea bag, boil water, pour {amount}ml, enjoy!')
         return Tea()
 
 
-class CoffeeFactory(HotDrinkFactory):
+class CoffeeFactory:
     def prepare(self, amount):
         print(f'Grind some beans, boil water, pour {amount}ml, enjoy!')
         return Coffee()
@@ -58,6 +58,7 @@ class HotDrinkMachine:
             for d in self.AvailableDrink:
                 name = d.name[0] + d.name[1:].lower()
                 factory_name = name + 'Factory'
+                # creating all objects and store them in the list.
                 factory_instance = eval(factory_name)()
                 self.factories.append((name, factory_instance))
 
